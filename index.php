@@ -8,10 +8,13 @@
     <link rel="stylesheet" type="text/css" href="design/default.css">
 </head>
 <body>
+
     <header>
         <h1 class="txt-center marg0">Mini-Chat</h1>
     </header>
+
     <main>
+        <!-- MESSAGES ON DISPLAY -->
         <section id="msg">
             <?php
                 //BDD CONNECTION
@@ -38,6 +41,8 @@
                 $reponse->closeCursor();
             ?>
         </section>
+
+        <!-- SEND MESSAGE FORM-->
         <section id="msg_form">
             <table class="box-center">
                 <form action="post.php" method="post">
