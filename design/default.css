@@ -33,6 +33,11 @@ body {
     padding: 0;
 }
 
+.succesPost {
+    color: white;
+    background-color: green;
+}
+
 
 /*MAIN*/
 
