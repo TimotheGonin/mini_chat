@@ -14,10 +14,13 @@
     {
         $pseudo = $_POST['pseudo_msg'];
         $txt = $_POST['message_msg'];
-
         // INSERT PREP REQ
         $req = $bdd->prepare('INSERT INTO minichat (pseudo, message) VALUES(?, ?)');
         $req->execute(array($_POST['pseudo_msg'], $_POST['message_msg']));
+        
+        //COOKIE
+        setcookie('pseudo_msg', $_POST['pseudo_msg'], time() + 365*24*3600, null, null, false, true);
+
         header('Location: index.php?succes=true');
         exit();
     } 

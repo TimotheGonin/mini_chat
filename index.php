@@ -56,7 +56,12 @@
                         </tr>
                         <tr>
                             <td>
-                                <input type="text" name="pseudo_msg" required>
+                                <input type="text" name="pseudo_msg" value="<?php
+                                if(isset($_COOKIE['pseudo_msg'])){
+                                    $cookiePseudo = $_COOKIE['pseudo_msg'];
+                                    echo $cookiePseudo;
+                                };
+                                ?>" required>
                             </td>
                         </tr>
                         <tr>
