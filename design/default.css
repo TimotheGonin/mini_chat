@@ -1,0 +1,47 @@
+/* RESET */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f0f2f5;
+}
+
+* {
+    box-sizing: border-box;
+    vertical-align: baseline;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/*GLOBAL CLASS*/
+
+.txt-center {
+    text-align: center;
+}
+
+.box-center {
+    margin: 0 auto;
+}
+
+.marg0 {
+    margin: 0;
+}
+
+.padd0 {
+    padding: 0;
+}
+
+
+/*MAIN*/
+
+h1 {
+    background: white;
+    padding: 15px 0;
+}
+
+#sbmit_btn {
+    margin: 10px auto;
+    display: block;
+}
