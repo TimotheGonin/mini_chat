@@ -12,7 +12,32 @@
         <h1 class="txt-center marg0">Mini-Chat</h1>
     </header>
     <main>
-        <section id="msg"></section>
+        <section id="msg">
+            <?php
+                //BDD CONNECTION
+                try 
+                {
+                    $bdd = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+                } 
+                catch (Exception $e) 
+                {
+                    die('Erreur : '.$e->getMessage());
+                }
+
+                // Récupération des 10 derniers messages
+                $reponse = $bdd->query('SELECT pseudo, message FROM minichat ORDER BY ID DESC LIMIT 0, 10');
+                
+                while ($donnees =$reponse->fetch())
+                {?>
+                    <p class="msg_pseudo"><?=htmlspecialchars($donnees['pseudo'])?> :</p>
+                    <p class="msg_content"><?=htmlspecialchars($donnees['message'])?></p>
+                <?php
+                }
+
+                //Fermeture requette
+                $reponse->closeCursor();
+            ?>
+        </section>
         <section id="msg_form">
             <table class="box-center">
                 <form action="post.php" method="post">
@@ -26,28 +51,36 @@
                     <tbody>
                         <tr>
                             <td>
-                                <label for="pseudo">Votre pseudo :</label>
+                                <label for="pseudo_msg">Votre pseudo :</label>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <input type="text" name="pseudo">
+                                <input type="text" name="pseudo_msg" required>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <label for="txtArea">Votre message :</label>
+                                <label for="message_msg">Votre message :</label>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <textarea type="textarea" name="txtArea" rows="4" cols="50"></textarea>
+                                <textarea type="textarea" name="message_msg" rows="4" cols="50" required></textarea>
                             </td>
                         </tr>
                     </tbody>
                     <tfoot>
                         <tr>
                             <td>
+                                <p>
+                                    <?php
+                                    if(isset($_GET['succes']))
+                                    {
+                                        echo'<p class ="succesPost txt-center">Message posté</p>';
+                                    }
+                                    ?>
+                                </p>
                                 <button type="submit" name="send" id="sbmit_btn">Envoyer</button>
                             </td>
                         </tr>
