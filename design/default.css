@@ -5,7 +5,6 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #f0f2f5;
 }
 
 * {
@@ -44,6 +43,37 @@ body {
 h1 {
     background: white;
     padding: 15px 0;
+}
+
+
+/*MASSAGES SECTION*/
+
+main {
+    background-color: #f0f2f5;
+    padding-top: 20px;
+}
+
+#msg {
+    margin: 0 auto;
+    width: 50%;
+}
+
+.msg_pseudo {
+    font-weight: bold;
+}
+
+.msg_content {
+    background-color: white;
+    border: 1px solid grey;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 30px;
+    padding: 5px 20px;
+}
+
+#msg_form {
+    margin-top: 50px;
+    background-color: white;
 }
 
 #sbmit_btn {
